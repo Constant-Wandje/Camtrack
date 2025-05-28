@@ -4,11 +4,11 @@ const Utilisateur = require('../models/Utilisateur');
 const bcrypt = require('bcrypt');
 
 router.post('/', async (req, res) => {
-  const { nom, ville, email, date, motDePasse, matriculeVehicule, sujet } = req.body;
+  const { nom, ville, email, date, motDePasse, matriculeVehicule, sujet, description, status} = req.body;
 
 
   const hashedPassword = await bcrypt.hash(motDePasse, 10);
-  const utilisateur = new Utilisateur({ nom, ville, email, date, motDePasse: hashedPassword, matriculeVehicule, sujet });
+  const utilisateur = new Utilisateur({ nom, ville, email, date, motDePasse: hashedPassword, matriculeVehicule, sujet, description, status});
   await utilisateur.save();
 
   res.status(201).json({ message: 'Query saved successfully !'});
