@@ -33,12 +33,12 @@ jobs:
 
     - name: Build and push frontend
       run: |
-        docker build -t camtrack-frontend -f frontend/Dockerfile .
+        docker build -t $IMAGE_FRONTEND:latest ./frontend
         docker push $IMAGE_FRONTEND:latest
 
     - name: Build and push backend
       run: |
-        docker build -t camtrack-backend -f backend/Dockerfile .
+        docker build -t camtrack-backend -f backend/Dockerfile
         docker push $IMAGE_BACKEND:latest
 
     - name: SSH into server and deploy
