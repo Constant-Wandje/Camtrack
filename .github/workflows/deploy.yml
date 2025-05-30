@@ -33,7 +33,7 @@ jobs:
 
       - name: Build and push frontend
         run: |
-          docker build -t $IMAGE_FRONTEND:latest ../frontend
+          docker build -t $IMAGE_FRONTEND:latest ./frontend
           docker push $IMAGE_FRONTEND:latest
 
       - name: Build and push backend
